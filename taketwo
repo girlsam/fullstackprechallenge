@@ -1,0 +1,23 @@
+# fullstackprechallenge
+Full Stack Pre-Challenge TAKE 2
+
+var creditNums = ['4916-2600-1804-0530', '4779-252888-3972', '4252-278893-7978' ,'4556-4242-9283-2260']
+function creditSum(array) { //function to find sum of strings and return string with largest sum
+  var largestSum = 0; //var to store largest sum
+  var index = 0; //index for array parameter
+  for (i=0; i < array.length; i++) { //loop through entire array starting at index 0, ending at last index
+      num = array[i].replace(/-/g, "0").split(""); //remove dashes and replace with "0". Use .split() to keep var an array that for loop can run through and sum
+      var sum = 0; //var to add together each string; var must be set within for loop so it applies to num arrays and not paramater array
+      for (j=0; j < num.length; j++) { //for loop to run through each string
+      sum += parseInt(num[j]); //parses each digit into an array of integers, adds each integer in num arrays to current sum and returns sum of each array
+      }
+      if (sum > largestSum) { //if/else statement: for sum of each array, find greatest sum
+         largestSum = sum; //largest sum becomes largestSum variable which is used in else statement
+         index = i; 
+    } else if (largestSum === sum) { //however, continue loop until largestSum is both greater than and equal to largestSum
+      index = i; //this will store the largestSum with the highest index
+    }
+}
+return array[index]; //returns the string based on its index rather than the sum
+}
+console.log(creditSum(creditNums));
